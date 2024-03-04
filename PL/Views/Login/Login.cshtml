@@ -1,0 +1,72 @@
+﻿@model ML.Usuario
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login & Registration Form</title>
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="~/css/Login.css">
+</head>
+<body>
+    <div class="container">
+        <input type="checkbox" id="check">
+        <div class="login form">
+            <header>Login</header>
+            <form action="#">
+                <input type="text" placeholder="Enter your email">
+                <input type="password" placeholder="Enter your password">
+                <a href="#"></a>
+
+
+                <a href="@Url.Action("RecuperaEmail", "Login")" class="btn btn-success"><i class="bi bi-person-fill-add"></i>Forgot password?</a>
+
+                <input type="button" class="button" value="Login">
+            </form>
+            <div class="signup">
+                <span class="signup">
+                    Don't have an account?
+                    <label for="check">Signup</label>
+                </span>
+            </div>
+        </div>
+
+        <div class="registration form">
+            @using (Html.BeginForm("form", "Login", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <header>Signup</header>
+                <form action="#">
+                    <input type="text" placeholder="Enter your name" name="nombre">
+                    <input type="email" placeholder="Enter your email" name="Email">
+                    <input type="password" placeholder="Create a password" name="password">
+                    <button type="submit"> Sign up </button>
+
+                    <div class="signup">
+                        <span class="signup">
+                            Already have an account?
+                            <label for="check">Login</label>
+                        </span>
+                    </div>
+                </form>
+            }
+
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+    $("#login-button").click(function (event) {
+        event.preventDefault();
+
+        $('form').fadeOut(500);
+        $('.wrapper').addClass('form-success');
+    });
+</script>
